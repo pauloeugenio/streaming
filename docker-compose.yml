@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  streaming:
+    image: streamingtcp
+    hostname: streaming
+    container_name: streaming
+    networks:
+      - lenovo-net
+    expose:
+      - "80"
+    ports:
+      - "80:80"
+    restart: always
+
+networks:
+  lenovo-net:
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
